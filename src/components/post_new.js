@@ -7,16 +7,21 @@ import { Field, reduxForm} from 'redux-form';
 
 class PostNew extends Component {
 
+
     renderTextField(field) {
+
         return (
             <div className="form-group">
                 <label>{field.label}</label>
                 <input
-                    className="form-control"
+                    className="form-control has-danger"
                     type="text"
                     {...field.input}
                     placeholder={field.placeholder}
                 />
+                <div className="text-help">
+                    {field.meta.touched ? field.meta.error : ''}
+                </div>
             </div>
         );
     }
@@ -25,18 +30,26 @@ class PostNew extends Component {
             <div className="form-group">
                 <label>{field.label}</label>
                 <textarea
-                    className="form-control"
+                    className="form-control has-danger"
                     {...field.input}
                     placeholder={field.placeholder}
                 />
+                <div className="text-help">
+                    {field.meta.touched ? field.meta.error : ''}
+                </div>
             </div>
         );
     }
 
+    onSubmit(values){
+        console.log(values);
+    }
+
     render() {
+        const { handleSubmit } = this.props;
         return (
             <div>
-                <form>
+                <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                     <Field
                         label="Title:"
                         placeholder="Enter title"
@@ -61,12 +74,34 @@ class PostNew extends Component {
                             this.renderTextAreaField
                         }
                     />
+                    <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
         );
     }
 }
 
+
+
+function validate(values) {
+    const errors = {};
+
+    if(!values.title) {
+        errors.title = "Enter a title";
+    }
+    if(!values.categories) {
+        errors.categories = "Enter at least one category";
+    }
+    if(!values.content) {
+        errors.content = "Enter some content";
+    }
+
+
+    return errors;
+
+}
+
 export default reduxForm({
+    validate,
     form: 'PostNewForm'
 })(PostNew);
