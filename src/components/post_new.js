@@ -9,33 +9,38 @@ class PostNew extends Component {
 
 
     renderTextField(field) {
-
+        const { meta: { touched, error } } = field;
+        const { placeholder, label} = field;
+        const className = `form-group ${touched && error ? 'has-danger' : ''}`;
         return (
-            <div className="form-group">
-                <label>{field.label}</label>
+            <div className={className}>
+                <label>{label}</label>
                 <input
-                    className="form-control has-danger"
+                    className="form-control"
                     type="text"
                     {...field.input}
-                    placeholder={field.placeholder}
+                    placeholder={placeholder}
                 />
-                <div className="text-help">
-                    {field.meta.touched ? field.meta.error : ''}
+                <div className="text-danger">
+                    {touched ? error : ''}
                 </div>
             </div>
         );
     }
     renderTextAreaField(field) {
+        const { meta: { touched, error } } = field;
+        const { placeholder, label} = field;
+        const className = `form-group ${touched && error ? 'has-danger' : ''}`;
         return (
-            <div className="form-group">
-                <label>{field.label}</label>
+            <div className={className}>
+                <label>{label}</label>
                 <textarea
                     className="form-control has-danger"
                     {...field.input}
-                    placeholder={field.placeholder}
+                    placeholder={placeholder}
                 />
-                <div className="text-help">
-                    {field.meta.touched ? field.meta.error : ''}
+                <div className="text-danger">
+                    {touched ? error : ''}
                 </div>
             </div>
         );
