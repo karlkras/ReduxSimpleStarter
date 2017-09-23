@@ -5,7 +5,7 @@ import axios from 'axios';
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 
 const WEATHER_URL =
-    `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}&q=`;
+    `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}&units=imperial&q=`;
 
 export function fetchWeather(city, country_code = 'us') {
     const url = `${WEATHER_URL}${city},${country_code}`;
