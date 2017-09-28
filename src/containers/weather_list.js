@@ -2,13 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/chart';
 import GoogleMap from '../components/google_map';
-
-
-
+import PartnersSelect from './partners_select';
+import SeasonsSelect from './seasons_select';
 
 class WeatherList extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {season: '', partner: ''};
+        this.updateSeason = this.updateSeason.bind(this);
+        this.updatePartner = this.updatePartner.bind(this);
+    }
+
+    updateSeason(newValue) {
+        console.log('State changed to: ', newValue);
+        this.setState({
+            season: newValue,
+        });
+    }
+
+    updatePartner(newValue) {
+        console.log('State changed to: ', newValue);
+        this.setState({
+            partner: newValue,
+        });
     }
 
 
@@ -31,27 +48,43 @@ class WeatherList extends Component {
     }
 
     render() {
+        console.log("Partners: " + this.props.partners);
+        console.log(this.props.seasons);
         return (
-            <table className="table table-hover" >
-                <thead>
-                    <tr>
-                        <th>City</th>
-                        <th>Temperature (&#8457;)</th>
-                        <th>Pressure (hpa)</th>
-                        <th>Humidity (%)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.props.weather.map(this.renderWeather)}
-                </tbody>
-            </table>
+            <div>
+                <table className="table table-hover" >
+                    <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>Temperature (&#8457;)</th>
+                            <th>Pressure (hpa)</th>
+                            <th>Humidity (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.weather.map(this.renderWeather)}
+                    </tbody>
+                </table>
+                <PartnersSelect
+                    name="form-st-partner-select"
+                    placeholder="Select EDI Trading Partner"
+                    value={this.state.partner}
+                    onChange={this.updatePartner}
+                />
+                <SeasonsSelect
+                    name="form-st-season-select"
+                    placeholder="Select Season/Year"
+                    value={this.state.season}
+                    onChange={this.updateSeason}
+                />
+            </div>
         );
     }
 
 }
 
-function mapStateToProps({weather}) {
-    return { weather };
+function mapStateToProps({weather, partners, seasons }) {
+    return { weather, partners, seasons };
 }
 
 export default connect(mapStateToProps)(WeatherList);
