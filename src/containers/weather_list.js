@@ -4,14 +4,29 @@ import Chart from '../components/chart';
 import GoogleMap from '../components/google_map';
 import PartnersSelect from './partners_select';
 import SeasonsSelect from './seasons_select';
+import Radio from '../components/radio';
 
 class WeatherList extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {season: '', partner: ''};
+        this.state = {
+            season: '',
+            partner: '',
+            userTypeRadioOption: 'trading-partner'
+        };
+
         this.updateSeason = this.updateSeason.bind(this);
         this.updatePartner = this.updatePartner.bind(this);
+        this.handleUserTypeChange = this.handleUserTypeChange.bind(this);
+    }
+
+    handleUserTypeChange(changeEvent) {
+        this.setState({
+            userTypeRadioOption: changeEvent.target.value,
+            season: '',
+            partner: '',
+        });
     }
 
     updateSeason(newValue) {
@@ -65,18 +80,53 @@ class WeatherList extends Component {
                         {this.props.weather.map(this.renderWeather)}
                     </tbody>
                 </table>
-                <PartnersSelect
-                    name="form-st-partner-select"
-                    placeholder="Select EDI Trading Partner"
-                    value={this.state.partner}
-                    onChange={this.updatePartner}
-                />
+
+                {
+                    this.state.userTypeRadioOption === 'trading-partner'
+                        ?
+                        <div>
+                            <PartnersSelect
+                                name="form-st-partner-select"
+                                placeholder="Select EDI Trading Partner"
+                                value={this.state.partner}
+                                onChange={this.updatePartner}
+                            />
+                        </div>
+                        : null
+                }
+                {
+                    this.state.userTypeRadioOption === 'sold-to'
+                        ?
+                        <div>
+                            <input className="soldToId" placeholder="Enter a Sold To id"/>
+                        </div>
+                        : null
+                }
+
                 <SeasonsSelect
                     name="form-st-season-select"
                     placeholder="Select Season/Year"
                     value={this.state.season}
                     onChange={this.updateSeason}
                 />
+                <div>
+                    <form>
+                        <div>
+                            <Radio
+                                label='EDI Trading Partner'
+                                value='trading-partner'
+                                checked={this.state.userTypeRadioOption === 'trading-partner'}
+                                onChange={this.handleUserTypeChange}
+                            />
+                            <Radio
+                                label='Sold To'
+                                value='sold-to'
+                                checked={this.state.userTypeRadioOption === 'sold-to'}
+                                onChange={this.handleUserTypeChange}
+                            />
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }
