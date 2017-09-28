@@ -110,22 +110,18 @@ class WeatherList extends Component {
                     onChange={this.updateSeason}
                 />
                 <div>
-                    <form>
-                        <div>
-                            <Radio
-                                label='EDI Trading Partner'
-                                value='trading-partner'
-                                checked={this.state.userTypeRadioOption === 'trading-partner'}
-                                onChange={this.handleUserTypeChange}
-                            />
-                            <Radio
-                                label='Sold To'
-                                value='sold-to'
-                                checked={this.state.userTypeRadioOption === 'sold-to'}
-                                onChange={this.handleUserTypeChange}
-                            />
-                        </div>
-                    </form>
+                    <Radio
+                        label='EDI Trading Partner'
+                        value='trading-partner'
+                        checked={this.state.userTypeRadioOption === 'trading-partner'}
+                        onChange={this.handleUserTypeChange}
+                    />
+                    <Radio
+                        label='Sold To'
+                        value='sold-to'
+                        checked={this.state.userTypeRadioOption === 'sold-to'}
+                        onChange={this.handleUserTypeChange}
+                    />
                 </div>
             </div>
         );
