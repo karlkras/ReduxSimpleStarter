@@ -4,19 +4,6 @@ import Select from 'react-select';
 
 
 class SeasonsSelect extends Component {
-    constructor(props) {
-        super(props);
-
-        // this.state = {season: ''};
-        // this.updateSeason = this.updateSeason.bind(this);
-    }
-
-    // updateSeason(newValue) {
-    //     console.log('State changed to: ', newValue);
-    //     this.setState({
-    //         season: newValue,
-    //     });
-    // }
 
     render() {
         return (

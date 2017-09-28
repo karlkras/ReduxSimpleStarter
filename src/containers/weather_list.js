@@ -24,8 +24,7 @@ class WeatherList extends Component {
     handleUserTypeChange(changeEvent) {
         this.setState({
             userTypeRadioOption: changeEvent.target.value,
-            season: '',
-            partner: '',
+            partner: ''
         });
     }
 

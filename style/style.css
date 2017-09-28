@@ -1,17 +1,226 @@
-td, th{
-    vertical-align: middle !important;
-    text-align: center !important;
+body {
+    background-color: #F3F2F7;
 }
 
-.input-group {
-    margin: 20px 0;
+.box {
+    border: 1px solid black;
+    /*width: 450px;*/
+    min-width: 475px;
 }
 
-svg{
-    height: 150px;
+h1, h2, h3, h4, h5 {
+    text-transform: uppercase;
+    font-family: "TradeGothicW01-BoldCn20 675334", Helvetica, Arial, sans-serif;
+    font-weight: bold;
 }
 
-td:first-of-type, td:first-of-type > div {
-    height: 200px;
-    width: 250px;
+.dlg {
+    height: 400px;
+    padding: 40px;
+}
+
+.full-load {
+    border: 0px;
+    background: #333;
+    color: white;
+}
+
+.full-load .bootstrap-select.btn-group .dropdown-menu li a:hover {
+    color: whitesmoke !important;
+    background: #bf5279 !important;
+}
+
+.full-load hr {
+    border-top: 1px solid #666 !important;
+}
+
+.soldTo {
+    border: 2pt solid #E7E6EA;
+    background: #fff;
+    height: auto;
+    color: black;
+}
+
+.soldTo hr {
+    color: #999;
+}
+
+.to-bottom {
+    position:absolute!important;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+.main {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.no-hz-padding {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+fieldset.scheduler-border {
+    border: 1px solid #ece9e9 !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+    box-shadow:  0px 0px 0px 0px #000;
+    width:auto;
+}
+
+.soldTo fieldset{
+    /*height: 130px!important;*/
+}
+
+.radio label {
+    margin-left: -5px;
+}
+
+
+legend.scheduler-border {
+    font-size: .85em !important;
+    text-align: left !important;
+    width:auto;
+    padding:0 10px;
+    border-bottom:none;
+}
+
+/* ----------------------------------- */
+/*          Nike button                */
+
+/* ---------- BUTTONS ---------- */
+.btn-regular-nikeorange, .btn-regular-nikefuel, .btn-regular-nearblack, .btn-regular-darkgrey, .btn-regular-lightgrey, .btn-regular-medgrey, .btn-sm-lightgrey, .btn-sm-medgrey, .btn-flyout-label, .btn-flyout-item, .btn-pill, .btn-pill-thin, .btn-toggle-container > .btn-toggle-item, .btn-toggle-container > .is-selected.btn-toggle-item, .btn-compound, .btn-pagination-prev, .btn-pagination-next, .btn-toggle-container, .dropdown {
+    -moz-box-sizing: border-box;
+    background-clip: padding-box;
+    background-color: transparent;
+    border: 0 none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "TradeGothicW01-BoldCn20 675334", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    vertical-align: middle;
+    outline: none; /* prevents odd chrome behavior where it insists on showing a selected outline around button elements */
+}
+
+.btn-regular-nikeorange:hover, .btn-flyout-label:hover, .btn-flyout-item:hover, .btn-pill:hover, .btn-pill-thin:hover, .btn-toggle-container > .btn-toggle-item:hover, .btn-compound:hover, .btn-pagination-prev:hover, .btn-pagination-next:hover, .btn-toggle-container:hover, .dropdown:hover, .is-hover.btn-regular-nikeorange, .is-hover.btn-regular-nearblack, .is-hover.btn-regular-darkgrey, .is-hover.btn-regular-lightgrey, .is-hover.btn-flyout-label, .is-hover.btn-flyout-item, .is-hover.btn-pill, .is-hover.btn-pill-thin, .btn-toggle-container > .is-hover.btn-toggle-item, .is-hover.btn-compound, .is-hover.btn-pagination-prev, .is-hover.btn-pagination-next, .is-hover.btn-toggle-container, .is-hover.dropdown {
+    text-decoration: none;
+}
+
+.btn-regular-nikeorange, .btn-regular-nearblack, .btn-regular-darkgrey, .btn-regular-lightgrey, .btn-regular-medgrey, .btn-sm-lightgrey, .btn-sm-medgrey, .btn-flyout-label, .dropdown {
+    border-radius: 3px 3px 3px 3px;
+}
+
+.btn-pill, .btn-pill-thin, .btn-toggle-container > .btn-toggle-item, .btn-toggle-container > .is-selected.btn-toggle-item {
+    border-radius: 20px 20px 20px 20px;
+}
+
+.btn-sm-nikeorange, .btn-sm-nearblack, .btn-sm-medgrey, .btn-sm-lightgrey {
+    font-size: 15px;
+    padding: 0.7000em 30px 0.6334em;
+    text-align: center;
+}
+
+.btn-regular-nikeorange, .btn-regular-nearblack, .btn-regular-darkgrey, .btn-regular-lightgrey, .btn-regular-medgrey, .btn-flyout-label, .btn-flyout-item {
+    font-size: 15px;
+    padding: 0.8667em 30px 0.8em;
+    text-align: center;
+}
+
+.btn-regular-nikeorange, .btn-flyout-label {
+    background-color: #FA5400;
+    background-image: linear-gradient(rgba(255, 168, 0, 0.5), rgba(245, 0, 0, 0.5));
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.25), 1px 1px 1px rgba(255, 255, 255, 0.27) inset, -1px -1px 1px rgba(0, 0, 0, 0.3) inset;
+    color: white;
+}
+
+.btn-regular-nikeorange:hover, .btn-flyout-label:hover, .is-hover.btn-regular-nikeorange, .is-hover.btn-flyout-label {
+    background-color: #FF6315;
+    background-image: linear-gradient(rgba(255, 198, 42, 0.5), rgba(255, 0, 0, 0.5));
+    color: white;
+}
+
+.btn-regular-nikeorange:active, .btn-flyout-label:active, .is-active.btn-regular-nikeorange, .is-active.btn-flyout-label {
+    color: white;
+    background-color: #FA5400;
+    background-image: linear-gradient(rgba(245, 0, 0, 0.5), rgba(255, 168, 0, 0.5));
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.35) inset, -1px -1px 1px rgba(255, 255, 255, 0.27) inset, 1px 1px 1px rgba(0, 0, 0, 0.3) inset;
+}
+
+.btn-regular-darkgrey, .btn-pill-thin, .btn-compound, .btn-toggle-container > .is-selected.btn-toggle-item, .dropdown-option-container > .dropdown-option.is-selected {
+    background-color: #333333;
+    background-image: linear-gradient(rgba(102, 102, 102, 0.5), rgba(0, 0, 0, 0.5));
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.25), 1px 1px 1px rgba(255, 255, 255, 0.27) inset, -1px -1px 1px rgba(0, 0, 0, 0.3) inset;
+    color: white;
+}
+
+.btn-regular-darkgrey:hover, .btn-pill-thin:hover, .btn-compound:hover, .btn-toggle-container > .is-selected.btn-toggle-item:hover, .dropdown-option-container > .dropdown-option.is-selected:hover, .is-hover.btn-regular-darkgrey, .is-hover.btn-pill-thin, .is-hover.btn-compound, .btn-toggle-container > .is-hover.is-selected.btn-toggle-item, .dropdown-option-container > .is-hover.dropdown-option.is-selected {
+    background-color: #404040;
+    background-image: linear-gradient(rgba(128, 128, 128, 0.5), rgba(0, 0, 0, 0.5));
+    color: white;
+}
+
+.btn-regular-darkgrey:active, .btn-pill-thin:active, .btn-compound:active, .btn-toggle-container > .is-selected.btn-toggle-item:active, .dropdown-option-container > .dropdown-option.is-selected:active, .btn-toggle-container > .is-selected.btn-toggle-item:focus, .dropdown-option-container > .dropdown-option.is-selected:focus, .is-active.btn-regular-darkgrey, .is-active.btn-pill-thin, .is-active.btn-compound, .btn-toggle-container > .is-active.is-selected.btn-toggle-item, .dropdown-option-container > .is-active.dropdown-option.is-selected {
+    background-color: #333333;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(102, 102, 102, 0.5));
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.35) inset, -1px -1px 1px rgba(255, 255, 255, 0.27) inset, 1px 1px 1px rgba(0, 0, 0, 0.3) inset;
+}
+
+.btn-regular-lightgrey, .btn-sm-lightgrey {
+    background-color: #ccc;
+    background-image: -webkit-linear-gradient(#efefef, #c4c4c4);
+    background-image: linear-gradient(#efefef, #c4c4c4);
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.25), 1px 1px 1px rgba(255, 255, 255, 0.27) inset, -1px -1px 1px rgba(0, 0, 0, 0.3) inset;
+    color: #333;
+}
+
+.btn-regular-lightgrey:hover, .is-hover.btn-regular-lightgrey, .btn-sm-lightgrey:hover, .is-hover.btn-sm-lightgrey {
+    background-color: #ccc;
+    background-image: -webkit-linear-gradient(#efefef, #c4c4c4);
+    background-image: linear-gradient(#efefef, #c4c4c4);
+    color: #666;
+}
+
+.btn-regular-lightgrey:active, .btn-sm-lightgrey:active {
+    background-color: #ccc;
+    background-image: -webkit-linear-gradient(#efefef, #c4c4c4);
+    background-image: linear-gradient(#efefef, #c4c4c4);
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.35) inset, -1px -1px 1px rgba(255, 255, 255, 0.27) inset, 1px 1px 1px rgba(0, 0, 0, 0.3) inset;
+}
+
+.btn-regular-medgrey, .btn-sm-medgrey {
+    background-color: #707072;
+    background-image: -webkit-linear-gradient(#7e7e80, #606063);
+    background-image: linear-gradient(#7e7e80, #606063);
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.85), 1px 1px 1px rgba(255, 255, 255, 0.0) inset, -1px -1px 1px rgba(0, 0, 0, 0.9) inset;
+    color: #fff;
+}
+
+.btn-regular-medgrey:hover, .is-hover.btn-regular-medgrey, .btn-sm-medgrey:hover, .is-hover.btn-sm-medgrey{
+    background-color: #707072;
+    background-image: -webkit-linear-gradient(#7e7e80, #606063);
+    background-image: linear-gradient(#7e7e80, #606063);
+    color: #ccc;
+}
+
+.btn-regular-medgrey:active, .btn-sm-medgrey:active {
+    background-color: #707072;
+    background-image: -webkit-linear-gradient(#7e7e80, #606063);
+    background-image: linear-gradient(#7e7e80, #606063);
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.35) inset, -1px -1px 1px rgba(255, 255, 255, 0.27) inset, 1px 1px 1px rgba(0, 0, 0, 0.3) inset;
+}
+
+button[disabled]:active, button[disabled]:hover, button[disabled] {
+/ / @extend . btn-regular-lightgrey: active;
+    background-color: #ccc;
+    background-image: -webkit-linear-gradient(#efefef, #c4c4c4);
+    background-image: linear-gradient(#efefef, #c4c4c4);
+    color: #999;
 }
