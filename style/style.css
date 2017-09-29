@@ -75,6 +75,10 @@ fieldset.scheduler-border {
     /*height: 130px!important;*/
 }
 
+.error {
+    color: red;
+}
+
 .radio label {
     margin-left: -5px;
 }

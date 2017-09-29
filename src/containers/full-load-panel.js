@@ -34,6 +34,8 @@ export default class FullLoadPanel extends Component {
     }
 
     render() {
+        const { partner, season} = this.state;
+        const isEnabled = partner && season;
         return (
             <div className="col-3 ml-auto box full-load dlg">
                 <div className="row">
@@ -80,7 +82,10 @@ export default class FullLoadPanel extends Component {
                     </div>
                     <div className="form-group row">
                         <div className="col-sm-12">
-                            <button className="btn-regular-nikeorange float-right">submit</button>
+                            <button
+                                className="btn-regular-nikeorange float-right"
+                                disabled={!isEnabled}
+                            >submit</button>
                         </div>
                     </div>
                 </form>

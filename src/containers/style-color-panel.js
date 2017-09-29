@@ -15,7 +15,10 @@ export default class SyleColorPanel extends Component {
             partner: '',
             soldto: '',
             userTypeRadioOption: 'trading-partner',
-            styleColors: ''
+            styleColors: '',
+            maxStyleColors: 5,
+            maxStyleColorsView: String(5).replace(/(.)(?=(\d{3})+$)/g,'$1,'),
+            exceeds_max: false
         };
 
         this.updateSeason = this.updateSeason.bind(this);
@@ -35,11 +38,22 @@ export default class SyleColorPanel extends Component {
     }
 
     handleSubmit(evt){
-        const thestate = this.state;
         evt.preventDefault();
-        alert('foobar');
-    }
+        const the_state = this.state;
 
+        let lines = (the_state.styleColors.trim()).split(/\r|\r\n|\n/);
+        let count = lines.length;
+        if(count > the_state.maxStyleColors) {
+            this.setState({
+                exceeds_max : true
+            });
+            return false;
+        } else {
+            this.setState({
+                exceeds_max : false
+            });
+        }
+    }
 
     onStyleColorsInputChange(event) {
         this.setState({styleColors: event.target.value});
@@ -147,7 +161,7 @@ export default class SyleColorPanel extends Component {
                     </div>
                     <div className="form-group row">
                         <div className="col-sm-12">
-                            <label htmlFor="styleColorTextarea">Style-Colors (max 5,000):</label>
+                            <label htmlFor="styleColorTextarea">Style-Colors (max {this.state.maxStyleColorsView}):</label>
                         </div>
                     </div>
                     <div className="form-group row">
@@ -167,6 +181,12 @@ export default class SyleColorPanel extends Component {
                                 disabled={!isEnabled}
                             >submit</button>
                         </div>
+                        {
+                            this.state.exceeds_max ?
+                                <p className="error">Style-Color entries exceeds the {this.state.maxStyleColorsView} limit</p>
+                                :
+                                null
+                        }
                     </div>
                 </form>
             </div>
